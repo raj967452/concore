@@ -10,28 +10,56 @@ import ErrorBoundary from '../components/util/ErrorBoundary';
 
 //import topBanner from '../data/banner';
 
-import {Banner, SobreBlock} from '../components/homeComponents';
+import { Banner, SobreBlock } from '../components/homeComponents';
 
 const topBanner = {
-    title: "A revolucao no <br /><b>desenvolvimento</b><br />de inovacao digital.", 
-    imgUrl: "https://i.ibb.co/gRMwFYG/bannerhome-2.png", 
-    description: "Projeto e desenvolvimento de software prático, eficiente<br />e dentro do orçamento." 
+    title: "A revolucao no <br /><b>desenvolvimento</b><br />de inovacao digital.",
+    imgUrl: "https://i.ibb.co/gRMwFYG/bannerhome-2.png",
+    description: "Projeto e desenvolvimento de software prático, eficiente<br />e dentro do orçamento."
 }
 
 const sobreBlock = {
-    title: "Grande parte dos projetos de software falham em custo, prazo<br />ou valor entregue.", 
-    imgUrl: "https://i.ibb.co/gSThfmR/img-section-about.png", 
-    description : `<p>A Concore surgiu com a missão de descomplicar o desenvolvimento de software e tornar a inovação tecnológica
+    title: "Grande parte dos projetos de software falham em custo, prazo<br />ou valor entregue.",
+    imgUrl: "https://i.ibb.co/gSThfmR/img-section-about.png",
+    description: `<p>A Concore surgiu com a missão de descomplicar o desenvolvimento de software e tornar a inovação tecnológica
     acessível para todas as empresas.</p><p><b>Nós criamos a plataforma que permite desenvolver softwares customizados à uma fração do tempo tradicional.</b></p><p>
     Nossa ferramenta, aliada ao nosso time especialista em inovação, nos permite criar soluções em projetos de softwares que atendem fielmente as regras do seu negócio.</p>`
 }
+
+const diffeBlock = {
+    topHeading: 'Os diferenciais Concore para fazer seu negócio crescer.',
+    items: [
+        {
+            imgUrl: 'https://i.ibb.co/8PmrT6f/4x.png',
+            alt: '4x mais rápido',
+            content: `<p>Tecnologia própria que nos permite desenvolver de forma mais eficiente e rápida, <strong>economizando
+            preciosos recursos.</strong></p>`
+        },
+        {
+            imgUrl: 'https://i.ibb.co/FWYQbYc/squad.png',
+            alt: 'Squad de inovação',
+            content: `<strong>Nossa equipe respira tecnologia e inovação há mais de 10 anos,</strong> gerando soluções
+            assertivas e práticas.`
+        },
+        {
+            imgUrl: 'https://i.ibb.co/GxtsCRc/datadriven.png',
+            alt: 'Data driven',
+            content: `Criamos estimativas técnicas com base em dados científicos, <strong>gerando assertividade.</strong>`
+        }
+    ]
+}
+
 
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             bannerSlot1: topBanner,
-            sobre: sobreBlock
+            sobreBlock: {
+                sobre: sobreBlock,
+                differentialsBlock: diffeBlock,
+                gradientImg: 'https://i.ibb.co/wCJj8hV/divider-gradient.png'
+            }
         }
         this.sobreRef = React.createRef();
     }
@@ -41,72 +69,17 @@ class HomePage extends React.Component {
         });
     }
 
-    render() {       
+    render() {
         return (
             <React.Fragment>
                 <ErrorBoundary>
                     <Banner banner={this.state.bannerSlot1} scrollRef={this.sobreRef} />
                 </ErrorBoundary>
                 <ErrorBoundary>
-                    <SobreBlock sobre={this.state.sobre} />                                
+                    <section className="sobre" ref={this.sobreRef}>
+                        <SobreBlock sobre={this.state.sobreBlock} />
+                    </section>
                 </ErrorBoundary>
-                <section className="sobre" ref={this.sobreRef} >
-                    <div className="container">
-                        <div className="row" data-aos="fade-up">
-                            <div className="col-md-5">
-                                <img className="img-width" src="https://i.ibb.co/gSThfmR/img-section-about.png" alt="Concore" />
-                            </div>
-                            <div className="col-md-7">
-                                <h2>Grande parte dos projetos de software falham em custo, prazo<br />ou valor entregue.</h2>
-                                <img className="divider1" src="https://i.ibb.co/wCJj8hV/divider-gradient.png" alt="Gradient divider" />
-                                <p>
-                                    A Concore surgiu com a missão de descomplicar o desenvolvimento de software e tornar a inovação tecnológica
-                                    acessível para todas as empresas.</p>
-                                <p>
-                                    <b>Nós criamos a plataforma que permite desenvolver softwares customizados à uma fração do tempo tradicional.</b>
-                                </p>
-                                <p>
-                                    Nossa ferramenta, aliada ao nosso time especialista em inovação, nos permite criar soluções em projetos de
-                                    softwares que atendem fielmente as regras do seu negócio.</p>
-                            </div>
-                        </div>
-                        <div className="row" data-aos="fade-up">    
-                            <div className="col-md-12 text-center" data-aos="fade-down">
-                                <h2 className="title-d">Os diferenciais Concore para fazer seu negócio crescer.</h2>
-                                <img className="divider2" src="https://i.ibb.co/wCJj8hV/divider-gradient.png" alt="Gradient divider" />
-                            </div>
-                            <div className="col-md-4 text-center" data-aos="fade-up">
-                                <div className="box-df">
-                                    <div className="div-img">
-                                        <img src="https://i.ibb.co/8PmrT6f/4x.png" alt="4x mais rápido" />
-                                    </div>
-                                    <hr className="hr-g" />
-                                    <p>Tecnologia própria que nos permite desenvolver de forma mais eficiente e rápida, <strong>economizando
-                preciosos recursos.</strong></p>
-                                </div>
-                            </div>
-                            <div className="col-md-4 text-center" data-aos="fade-up">
-                                <div className="box-df">
-                                    <div className="div-img mg-top">
-                                        <img src="https://i.ibb.co/FWYQbYc/squad.png" alt="Squad de inovação" />
-                                    </div>
-                                    <hr className="hr-g" />
-                                    <p><strong>Nossa equipe respira tecnologia e inovação há mais de 10 anos,</strong> gerando soluções
-              assertivas e práticas.</p>
-                                </div>
-                            </div>
-                            <div className="col-md-4 text-center" data-aos="fade-up">
-                                <div className="box-df">
-                                    <div className="div-img mg-top">
-                                        <img src="https://i.ibb.co/GxtsCRc/datadriven.png" alt="Data driven" />
-                                    </div>
-                                    <hr className="hr-g" />
-                                    <p>Criamos estimativas técnicas com base em dados científicos, <strong>gerando assertividade.</strong></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
                 <section className="solucoes">
                     <div className="container">
                         <div className="row">

@@ -1,6 +1,39 @@
 import React from 'react';
 
-export const Footer = () => (
+class Footer extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name:"",
+            email : ""
+       }
+    }
+    
+    onSubmit(e) {
+        const input = this.state;
+        fetch("https://flowcore.concore.io/rh/test/react1", {
+            method: 'POST',  
+            body: JSON.stringify(input),  
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+        .then(response => console.log('Success:', JSON.stringify(response)))
+        .catch(error => console.error('Error:', error));
+        e.preventDefault(); 
+    };
+    
+    checkRequiredString(value) {
+        return value != null && value.toString().trim().length > 0;
+    }
+      
+
+  render() {
+    const validated = 
+    this.checkRequiredString(this.state.name) &&
+    this.checkRequiredString(this.state.email);
+
+    return (
     <footer>
         <div className="container">
             <div className="row">
@@ -29,13 +62,21 @@ export const Footer = () => (
 
                     <form className="form-style">
                         <div className="form-group">
-                            <input required type="text" placeholder="Nome:" className="form-control" />
+                            <input required type="text" placeholder="Nome:" className="form-control" 
+                              onChange={e =>
+                                this.setState({ name: e.target.value })
+                              }/>
                         </div>
                         <div className="form-group">
-                            <input required type="text" placeholder="E-mail:" className="form-control" />
+                            <input required type="text" placeholder="E-mail:" className="form-control" 
+                            onChange={e =>
+                                this.setState({ email: e.target.value })
+                              }/>/>
                         </div>
                         <div className="button-area">
-                            <button type="submit">Enviar</button>
+                            <button type="submit" 
+                            disabled={validated !== true}
+                             onClick={e => this.onSubmit(e)} >Enviar</button>
                         </div>
                     </form>
                 </div>
@@ -54,5 +95,7 @@ export const Footer = () => (
                 </div>
             </div>
         </div>
-    </footer>
-);
+        </footer>
+    )}
+};
+export default Footer;

@@ -6,7 +6,7 @@ import { faChevronDown, faChevronLeft, faChevronRight } from '@fortawesome/free-
 
 import './scss/app.scss';
 
-import { Footer } from './components/global';
+import Footer from './components/global/footer';
 import Header from './components/global/header';
 import NotFound from './pages/NotFound/NotFound';
 import HomePage from './pages/homepage';
