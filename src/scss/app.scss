@@ -1,0 +1,774 @@
+@import './variables.scss';
+@import './mixin.scss';
+
+body {
+  margin: 0;
+  font-family: $main-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+section.banner {
+  background-repeat:no-repeat;
+  background-position: center;
+  background-color: $gradient-bg;
+  background-size: cover;
+  padding: 145px 0;
+  position: relative;
+
+  @include breakpoint() {
+    background: url('https://i.ibb.co/Qdd2Bfh/banner-mobile.png') no-repeat center;
+    background-color: $gradient-bg !important;
+    background-size: cover !important;
+    padding: 120px 0 70px;
+  }
+
+  @include breakpoint('fullhd') {
+    padding: 180px 0;
+  }
+
+  @include breakpoint('fullhd1920') {
+    padding: 240px 0;
+  }
+
+  h1 {
+    color: $white;
+    font-size: 52px;
+    font-style: italic;
+    text-transform: uppercase;
+
+    @include breakpoint() {
+      font-size: 26px;
+    }
+
+    @include breakpoint('lowmobile') {
+      font-size: 22px;
+    }
+
+    b {
+      margin-left: 80px;
+      font-weight: bold;
+
+      @include breakpoint() {
+        margin-left: 40px;
+      }
+    }
+  }
+
+  p {
+    color: $white;
+    font-size: 22px;
+    font-weight: bold;
+
+    @include breakpoint() {
+      font-size: 18px;
+      text-align: center;
+      padding-top: 180px;
+    }
+  }
+
+  .link-scroll {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: -50%;
+    right: 0;
+    left: 0;
+
+    @include breakpoint() {
+      bottom: -18%;
+    }
+
+    @include breakpoint('fullhd') {
+      bottom: -65%;
+    }
+
+    @include breakpoint('fullhd1920') {
+      bottom: -80%;
+    }
+
+    .scrolldown {
+      color: $white;
+      transition: all .2s;
+
+      &:hover {
+        opacity: .5;
+      }
+
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+section.sobre,
+section.sobre-sz,
+section.sobre-invs {
+  padding: 70px 0;
+  background: linear-gradient(180deg, $gradient-bg 0%, $white 100%);
+
+  @include breakpoint() {
+    padding: 60px 0 30px;
+  }
+
+  .img-width {
+    width: 110%;
+
+    @include breakpoint() {
+      width: 100%;
+    }
+  }
+
+  .title-d {
+    padding: 70px 170px 0;
+
+    @include breakpoint() {
+      padding: 40px 0 0;
+    }
+  }
+
+  .hr-d {
+    margin-bottom: 100px;
+  }
+
+  .box-df {
+    box-shadow: 1px 2px 15px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: $white;
+    height: 300px;
+    padding: 30px 15px;
+
+    @include breakpoint() {
+      margin-bottom: 30px;
+    }
+
+    .div-img {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .mg-top {
+      margin-top: 28px;
+    }
+
+    .hr-g {
+      border-top: 3px solid $gray-hr;
+      width: 70px;
+      margin-left: -15px;
+    }
+
+    p {
+      strong {
+        color: $black;
+      }
+    }
+  }
+}
+
+section.solucoes,
+section.solucoes-sz,
+section.solucoes-invs {
+  overflow: hidden;
+  background: $gray-bg;
+  padding: 80px 0 90px;
+
+  @include breakpoint() {
+    padding: 60px 0 100px;
+  }
+
+  a {
+    display: block;
+
+    &:hover {
+      transition: all .4s;
+      text-decoration: none;
+      transform: scale(1.02, 1.02);
+    }
+  }
+
+  .bg-sprint {
+    background: url('https://i.ibb.co/LhFNdB3/bg-img-sprint-zero.png') no-repeat;
+    box-shadow: 1px 2px 15px 0 rgba(0, 0, 0, 0.6);
+    background-size: cover;
+    padding: 50px 40px 70px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+
+    @include breakpoint() {
+      padding: 40px 40px 70px;
+    }
+  }
+
+  .bg-innovation {
+    background: url('https://i.ibb.co/dWV3JQc/bg-img-innovation-squad.png') no-repeat;
+    box-shadow: 1px 2px 15px 0 rgba(0, 0, 0, 0.6);
+    background-size: cover;
+    padding: 50px 40px 70px;
+    border-radius: 10px;
+
+    @include breakpoint() {
+      padding: 40px 40px 70px;
+    }
+  }
+
+  h3 {
+    color: $white;
+    line-height: 2.5rem;
+
+    @include breakpoint() {
+      line-height: 1.8rem;
+    }
+  }
+
+  .link-area {
+    margin-top: 60px;
+
+    @include breakpoint() {
+      margin-top: 50px;
+    }
+
+    .a-style {
+      transition: all .4s;
+      text-transform: uppercase;
+      background: $green-secondary;
+      font-family: $main-font;
+      font-weight: bold;
+      font-size: 15px;
+      color: $white;
+      border-radius: 25px;
+      padding: 16px 80px;
+      box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.5);
+
+      @include breakpoint('lowmobile') {
+        padding: 16px 40px;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .img-solucoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    @include breakpoint() {
+      margin-bottom: 20px;
+    }
+  }
+
+  .slider-concore {
+    padding-top: 80px;
+
+    h2 {
+      padding: 0 140px;
+
+      @include breakpoint() {
+        padding: 0;
+      }
+    }
+
+    h3 {
+      color: $color-title;
+      line-height: 2rem;
+
+      @include breakpoint() {
+        line-height: 1.4rem;
+      }
+    }
+
+    h4 {
+      padding-top: 60px;
+
+      @include breakpoint() {
+        padding-top: 20px;
+      }
+    }
+
+    .carousel-item {
+      img {
+        width: 110%;
+      }
+    }
+
+    .carousel-control-prev {
+      left: -10%;
+      top: 40%;
+
+      @include breakpoint() {
+        left: 30%;
+        top: 100%;
+      }
+    }
+
+    .carousel-control-next {
+      right: -10%;
+      top: 40%;
+
+      @include breakpoint() {
+        right: 30%;
+        top: 100%;
+      }
+    }
+
+    .carousel-control-next,
+    .carousel-control-prev {
+      opacity: 1;
+    }
+  }
+}
+
+
+// footer
+footer {
+  padding: 100px 0 0;
+  background: $black-footer;
+
+  @include breakpoint() {
+    padding: 50px 0 0;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 40px;
+
+    li {
+      margin-right: 30px;
+    }
+
+    a {
+      img {
+        transition: all .4s;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.2, 1.2);
+        }
+      }
+    }
+  }
+
+  h5 {
+    padding-bottom: 20px;
+    font-family: $main-font;
+    font-weight: bold;
+    font-size: 16px;
+    color: $white;
+
+    @include breakpoint() {
+      padding: 30px 0 0;
+    }
+  }
+
+  p {
+    color: $white;
+
+    @include breakpoint() {
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: $white;
+      transition: all .4s;
+
+      &:hover {
+        text-decoration: none;
+        color: $green-color;
+      }
+    }
+  }
+
+  .form-style {
+    input {
+      background: transparent;
+      border: 1px solid $gray-form;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+
+      &:focus {
+        background: $gray-form;
+        box-shadow: none;
+      }
+    }
+
+    .button-area {
+      text-align: right;
+      padding: 15px 0 40px;
+
+      @include breakpoint() {
+        padding: 15px 0 10px;
+      }
+
+      button {
+        cursor: pointer;
+        transition: all .4s;
+        font-family: $main-font;
+        font-weight: bold;
+        font-size: 14px;
+        background: transparent;
+        border: 2px solid $green-secondary;
+        border-radius: 20px;
+        color: $green-secondary;
+        padding: 8px 40px;
+
+        @include breakpoint() {
+          width: 100%;
+        }
+
+        &:hover {
+          background: $green-secondary;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  hr {
+    border-top: 1px solid $gray-cr;
+  }
+
+  .creditos {
+    font-size: 13px;
+    color: $gray-cr;
+  }
+}
+
+
+//header
+header {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  background: $header-bg;
+  padding: 20px 0;
+
+  @include breakpoint() {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+
+    .navbar-light .navbar-toggler {
+      border: none !important;
+      outline: none;
+    }
+  }
+
+  nav {
+    @include breakpoint() {
+      padding: 0 !important;
+
+      .menu-holder {
+        padding-left: 15px !important;
+      }
+
+      button {
+        padding-right: 15px !important;
+      }
+    }
+
+    .mx-auto {
+      margin-right: 0 !important;
+    }
+
+    ul {
+      @include breakpoint() {
+        text-align: right;
+        margin-top: 20px;
+      }
+
+      li {
+        margin-right: 30px;
+
+        @include breakpoint() {
+          margin-right: 0;
+          text-align: center;
+        }
+
+        a {
+          transition: all .4s;
+          text-transform: uppercase;
+          font-family: $main-font;
+          font-weight: bold;
+          font-size: 13px;
+          color: $gray-text;
+
+          @include breakpoint() {
+            display: block;
+            line-height: 3.2rem;
+
+            &:active {
+              background: $black-active;
+              color: $white;
+            }
+          }
+
+          &:hover {
+            text-decoration: none;
+            color: $white;
+          }
+
+          &:active {
+            color: $white;
+          }
+
+          &.active {
+            text-decoration: none;
+            color: #fff;
+
+            @media screen and (max-width: 768px) {
+              background: #1F242A;
+            }
+          }
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+      }
+    }
+  }
+}
+
+
+
+.hidden-elem {
+  display: none;
+}
+
+.show-elem {
+  display: block;
+}
+
+h1,
+h2 {
+  font-family: $main-font;
+  font-weight: bold;
+  font-size: 32px;
+
+  @include breakpoint() {
+    font-size: 26px;
+  }
+
+  @include breakpoint('lowmobile') {
+    font-size: 22px;
+  }
+}
+
+h2 {
+  color: $color-title;
+}
+
+h3 {
+  font-family: $main-font;
+  font-weight: bold;
+  font-size: 26px;
+
+  @include breakpoint() {
+    font-size: 18px;
+  }
+}
+
+h4 {
+  font-family: $main-font;
+  font-weight: bold;
+  font-size: 18px;
+  color: $gray-text;
+}
+
+p {
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 16px;
+  color: $gray-text;
+
+  @include breakpoint('lowmobile') {
+    font-size: 14px;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.divider1 {
+  margin-bottom: 30px;
+}
+
+.divider2 {
+  margin-bottom: 50px;
+}
+
+.text-center-mobile {
+  @include breakpoint() {
+    text-align: center;
+  }
+}
+
+
+.modal {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.modal-open .modal {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding-right: 0 !important;
+}
+
+#reserva-sz,
+#contato-invs {
+  .modal-header {
+    border: none;
+    position: relative;
+
+    span i {
+      color: $red-color;
+    }
+  }
+
+  .modal-content {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .modal-body {
+    padding-top: 0;
+  }
+
+  h5 {
+    font-family: $main-font;
+    font-weight: bold;
+    font-size: 24px;
+    color: $color-title;
+    text-align: center;
+    line-height: 1.8rem;
+    padding: 30px 20px 0;
+
+    @include breakpoint() {
+      font-size: 22px;
+    }
+  }
+
+  .close {
+    position: absolute;
+    right: 15px;
+    opacity: 1;
+
+    @include breakpoint() {
+      padding: 1rem 1rem 0 0;
+    }
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+
+  .form-style {
+    padding: 0 60px;
+
+    @include breakpoint() {
+      padding: 0 20px;
+    }
+
+    input {
+      background: transparent;
+      border: 1px solid $border-modal;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+
+      &:focus {
+        background: $border-modal;
+        box-shadow: none;
+      }
+    }
+
+    .button-area {
+      text-align: right;
+      padding: 30px 0 40px;
+
+      @include breakpoint() {
+        padding: 20px 0 30px;
+      }
+
+      button {
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all .4s;
+        font-family: $main-font;
+        font-weight: bold;
+        font-size: 16px;
+        background: $green-secondary;
+        border-radius: 25px;
+        border: none;
+        color: $white;
+        padding: 12px 40px;
+        width: 220px;
+        box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.3);
+
+        @include breakpoint() {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .success-msgn {
+    padding: 10px 0 20px;
+
+    img {
+      margin-bottom: 30px;
+    }
+
+    h5 {
+      padding: 0 70px;
+    }
+  }
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "logoSrc": "https://i.ibb.co/mNBzXkz/logo.png",
+    "hamburguer": "https://i.ibb.co/fdn2xrR/hamburguer.png",
+    "menu": [
+        { "title": "Home", "link": "/" },
+        { "title": "Sprint Zero", "link": "/sprintzero" },
+        { "title": "Innovation Squad", "link": "/innovationsquad" },
+        { "title": "Blog", "link": "/blog" }
+    ]
+}

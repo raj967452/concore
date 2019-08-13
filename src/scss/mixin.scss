@@ -1,0 +1,23 @@
+/// Mixin para inserção facilitada de breakpoints mobile
+/// @param {string} $value - Resolução do breakpoint para inserção do @media.
+/// @content Conteúdo de personalização do breakpoint.
+/// @example @include breakpoint(tablet);
+
+$breakpoints: (
+    'lowmobile' : (max-width: 640px),
+    'mobile' : (max-width: 768px),
+    'tablet' : (max-width: 920px),
+    'notebook' : (max-width: 1366px),
+    'fullhd' : (min-width: 1600px),
+    'fullhd1920' : (min-width: 1920px)
+)!default;
+@mixin breakpoint($value: mobile) {
+    @if map-has-key($breakpoints, $value) {
+        @media screen and #{inspect(map-get($breakpoints, $value))} {
+            @content;
+        }
+    }
+    @else {
+        @warn "Couldn't find a breakpoint named `#{$value}`.";
+    }
+}
