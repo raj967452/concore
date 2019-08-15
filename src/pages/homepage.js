@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import faColors from '../scss/variables.scss';
@@ -10,7 +9,8 @@ import ErrorBoundary from '../components/util/ErrorBoundary';
 
 //import topBanner from '../data/banner';
 
-import { Banner, SobreBlock } from '../components/homeComponents';
+import { Banner, SobreBlock, SolucoesBlock } from '../components/homeComponents';
+import { SliderBlock } from '../components/global/slider/sliderblock';
 
 const topBanner = {
     title: "A revolucao no <br /><b>desenvolvimento</b><br />de inovacao digital.",
@@ -49,6 +49,51 @@ const diffeBlock = {
     ]
 }
 
+const solucoes = {
+    topHeading: "Soluções Concore",
+    items: [
+        {
+            imgUrl: "https://i.ibb.co/8PpHxQQ/logo-sprint-zero.png",
+            alt: "Sprint zero",
+            link: "/sprintzero",
+            subheading: "Comece transformando a sua ideia em um projeto de software completo e com protótipo navegável.",
+            linkArea: "Saiba mais",
+            bgClass: "sprint",
+            direction: "left"
+        },
+        {
+            imgUrl: "https://i.ibb.co/fpWvVKS/logo-innovationsquad.png",
+            alt: "Innovation squad",
+            link: "/innovationsquad",
+            subheading: "Tenha a disposição uma equipe sênior para projeto e desenvolvimento do seu software.",
+            linkArea: "Saiba mais",
+            bgClass: "innovation",
+            direction: "right"
+        }        
+    ]
+}
+
+const slider = {
+    topHeading: "Confira o impacto das soluções Concore para seus clientes.",
+    items: [
+        {
+            imgUrl: "https://i.ibb.co/2Ykg2yD/case-ingresse.png",
+            alt: "Concore",
+            slidHeadingH4: "Cliente: Ingresse S.A",
+            slidHeadingH3: "Diminuinos o tempo de repasses financeiros de horas para minutos.",
+            content: "Nós projetamos em conjunto com o setor financeiro da Ingresse uma ferramenta de solicitação e gestão de repasses financeiros. O processo de repasse era realizado por planilhas, o que resultava em eventuais erros, perdas e dificuldade de gestão em grande volume."
+        },
+        {
+            imgUrl: "https://i.ibb.co/2Ykg2yD/case-ingresse.png",
+            alt: "Concore",
+            slidHeadingH4: "Cliente: Ingresse S.A",
+            slidHeadingH3: "Diminuinos o tempo de repasses financeiros de horas para minutos.",
+            content: "Nós projetamos em conjunto com o setor financeiro da Ingresse uma ferramenta de solicitação e gestão de repasses financeiros. O processo de repasse era realizado por planilhas, o que resultava em eventuais erros, perdas e dificuldade de gestão em grande volume."
+        }        
+    ]
+}
+
+/* content will be dynamic with api but for presentation purpose, we are using static Const*/
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -58,6 +103,11 @@ class HomePage extends React.Component {
             sobreBlock: {
                 sobre: sobreBlock,
                 differentialsBlock: diffeBlock,
+                gradientImg: 'https://i.ibb.co/wCJj8hV/divider-gradient.png'
+            },
+            solucoesBlock: {
+                solucoes: solucoes,
+                slider: slider,
                 gradientImg: 'https://i.ibb.co/wCJj8hV/divider-gradient.png'
             }
         }
@@ -80,106 +130,9 @@ class HomePage extends React.Component {
                         <SobreBlock sobre={this.state.sobreBlock} />
                     </section>
                 </ErrorBoundary>
-                <section className="solucoes">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12 text-center" data-aos="fade-up">
-                                <h2>Soluções Concore</h2>
-                                <img className="divider2" src="https://i.ibb.co/wCJj8hV/divider-gradient.png" alt="Gradient divider" />
-                            </div>
-                            <div className="col-md-12">
-                                <NavLink to="/sprintzero">
-                                    <div className="bg-sprint" data-aos="fade-left">
-                                        <div className="row">
-                                            <div className="col-md-5 text-center">
-                                                <div className="img-solucoes">
-                                                    <img src="https://i.ibb.co/8PpHxQQ/logo-sprint-zero.png" alt="Sprint zero" />
-                                                </div>
-                                            </div>
-                                            <div className="col-md-7">
-                                                <h3>Comece transformando a sua ideia em um projeto de software completo e com protótipo navegável.</h3>
-                                                <div className="link-area">
-                                                    <span className="a-style hvr-wobble-vertical">Saiba mais</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </NavLink>
-                                <NavLink to="/innovationsquad">
-                                    <div className="bg-innovation" data-aos="fade-right">
-                                        <div className="row">
-                                            <div className="col-md-5 text-center">
-                                                <div className="img-solucoes">
-                                                    <img src="https://i.ibb.co/fpWvVKS/logo-innovationsquad.png" alt="Innovation squad" />
-                                                </div>
-                                            </div>
-                                            <div className="col-md-7">
-                                                <h3>Tenha a disposição uma equipe sênior para projeto e desenvolvimento do seu software.</h3>
-                                                <div className="link-area">
-                                                    <span className="a-style hvr-wobble-vertical">Saiba mais</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="slider-concore" data-aos="fade-up">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-12 text-center">
-                                    <h2>Confira o impacto das soluções Concore para seus clientes.</h2>
-                                    <img className="divider2" src="https://i.ibb.co/wCJj8hV/divider-gradient.png" alt="Gradient divider" />
-                                </div>
-                                <div className="col-md-12">
-                                    <div id="carouselConcore" className="carousel slide" data-ride="carousel" data-interval="10000">
-                                        <div className="carousel-inner">
-                                            <div className="carousel-item active">
-                                                <div className="row">
-                                                    <div className="col-md-6">
-                                                        <img src="https://i.ibb.co/2Ykg2yD/case-ingresse.png" alt="Concore" />
-                                                    </div>
-                                                    <div className="col-md-6">
-                                                        <h4>Cliente: Ingresse S.A</h4>
-                                                        <h3>Diminuinos o tempo de repasses financeiros de horas para minutos.</h3>
-                                                        <p>
-                                                            Nós projetamos em conjunto com o setor financeiro da Ingresse uma ferramenta de solicitação e
-                                                            gestão de repasses financeiros. O processo de repasse era realizado por planilhas, o que
-                                                            resultava
-                                                            em eventuais erros, perdas e dificuldade de gestão em grande volume.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="carousel-item">
-                                                <div className="row">
-                                                    <div className="col-md-6">
-                                                        <img src="assets/images/home/case-ingresse.png" alt="Concore" />
-                                                    </div>
-                                                    <div className="col-md-6">
-                                                        <h4>Cliente: Ingresse S.A</h4>
-                                                        <h3>Diminuinos o tempo de repasses financeiros de horas para minutos.</h3>
-                                                        <p>
-                                                            Nós projetamos em conjunto com o setor financeiro da Ingresse uma ferramenta de solicitação e
-                                                            gestão de repasses financeiros. O processo de repasse era realizado por planilhas, o que
-                                                            resultava
-                                                            em eventuais erros, perdas e dificuldade de gestão em grande volume.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a className="carousel-control-prev car-control" href="#carouselConcore" role="button" data-slide="prev">
-                                            <FontAwesomeIcon icon={['fas', 'chevron-left']} size="3x" color={faColors.faArrow} />
-                                        </a>
-                                        <a className="carousel-control-next car-control" href="#carouselConcore" role="button" data-slide="next">
-                                            <FontAwesomeIcon icon={['fas', 'chevron-right']} size="3x" color={faColors.faArrow} />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <ErrorBoundary>
+                    <SolucoesBlock solucoes={this.state.solucoesBlock} />
+                </ErrorBoundary>
             </React.Fragment>
         );
     }

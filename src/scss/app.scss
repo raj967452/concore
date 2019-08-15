@@ -309,6 +309,7 @@ section.solucoes-invs {
     .carousel-control-next {
       right: -10%;
       top: 40%;
+      font-size: 3em;
 
       @include breakpoint() {
         right: 30%;

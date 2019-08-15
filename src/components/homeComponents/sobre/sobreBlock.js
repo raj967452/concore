@@ -14,7 +14,7 @@ export const SobreBlock = (props) => {
                     <h2 className="title-d">{sobre.differentialsBlock.topHeading}</h2>
                     <img className="divider2" src={sobre.gradientImg} alt="Gradient divider" />
                 </div>
-                {diffItems.items.map(function (blocks, index) {
+                {diffItems.items.map((blocks, index) => {
                     return (
                         <ConcoreDifferentials key={index} diffBlokContent={blocks} />
                     )
